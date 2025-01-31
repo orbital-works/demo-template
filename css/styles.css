@@ -1,0 +1,118 @@
+/* Basic reset to normalize styles across browsers */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Looks best with black background */
+html {
+  color-scheme: dark only;
+}
+
+body {
+  font-family: sans-serif; /* Choose a nice, readable font */
+  line-height: 1.6;
+}
+
+/* Header section Styles */
+header {
+  background-color: #333; /* Dark background for header */
+  color: #fff; /* White text color */
+  padding: 1rem; /* Vertical padding */
+  text-align: center; /* Center the navigation */
+  border-radius: 8px;
+  box-shadow: 10px 10px 20px #333;
+}
+
+nav ul {
+  list-style: none; /* Remove bullet points */
+}
+
+nav li {
+  display: inline; /* Make list items horizontal */
+  margin: 0 1rem; /* Spacing between list items */
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none; /* Remove underlines from links */
+  font-weight: bold;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+nav a:hover {
+  color: #f0ad4e; /* Gold color on hover */
+}
+
+
+/* Main section Styles */
+main {
+  padding: 2rem;
+  max-width: 960px; /* Set a maximum width for the main content */
+  margin: 0 auto; /* Center the main content */
+}
+
+
+/* Footer section Styles */
+footer {
+  background-color: #333; /* Dark background for footer */
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 10px 10px 20px #333;
+}
+
+
+/* Stick the digital clock to the top right of the screen */
+digital-clock {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+
+
+/* Background squares that gradually fade away */
+/* https://codepen.io/jh3y/pen/wvXvERq */
+
+@layer base {
+  :root {
+    --font-size-min: 16;
+    --font-size-max: 20;
+    --font-ratio-min: 1.2;
+    --font-ratio-max: 1.33;
+    --font-width-min: 375;
+    --font-width-max: 1500;
+  }
+
+  body {
+    background: light-dark(#fff, #000);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: 'SF Pro Text', 'SF Pro Icons', 'AOS Icons', 'Helvetica Neue',
+      Helvetica, Arial, sans-serif, system-ui;
+  }
+
+  body::before {
+    --size: 45px;
+    --line: color-mix(in hsl, canvasText, transparent 70%);
+    content: '';
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: linear-gradient(90deg,
+        var(--line) 1px,
+        transparent 1px var(--size)) 50% 50% / var(--size) var(--size),
+      linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size);
+    mask: linear-gradient(-20deg, transparent 50%, white);
+    top: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+}

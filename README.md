@@ -1,1 +1,1 @@
-# demo-template
+# Demo template

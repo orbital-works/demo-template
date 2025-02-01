@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Camera Test</h1>
+    </header>
+
+    <main>
+        <camera-capture></camera-capture>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Orbital Works. All rights reserved.</p>
+    </footer>
+</body>
+
+<script src="./js/camera-capture.js"></script>
+<script>
+    const cameraCapture = document.querySelector('camera-capture');
+
+    cameraCapture.addEventListener('image-captured', (event) => {
+        const imageData = event.detail.imageData;
+        console.log('Captured image data:', imageData);
+
+        // You can now use the imageData (e.g., send it to a server, display it, etc.)
+
+        // Example: Create an <a> element to download the image
+        const link = document.createElement('a');
+        link.href = imageData;
+        link.download = 'captured_image.png'; // Set the filename
+        link.click(); // Programmatically click the link to trigger download
+    });
+</script>
+
+</html>

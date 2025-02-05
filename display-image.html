@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Display</title>
+</head>
+<body>
+
+    <h1>Displayed Image</h1>
+    <img id="displayedImage" src="" alt="Selected Image">
+
+    <script>
+        window.onload = function() {
+            const imageData = localStorage.getItem('imageData');
+            const displayedImage = document.getElementById('displayedImage');
+
+            if (imageData) {
+                displayedImage.src = imageData;
+                localStorage.removeItem('imageData'); // Clear from local storage after display (optional)
+            } else {
+                alert("No image data found. Please select an image on the previous page."); // Handle the case where no image data exists.
+                window.location.href = 'index.html'; // Redirect back to the image selection page.
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Selection</title>
+</head>
+<body>
+    <h1>Select an Image</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <br>
+    <button onclick="previewImage()">Preview</button>
+
+    <script>
+        function previewImage() {
+            const fileInput = document.getElementById('imageInput');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    localStorage.setItem('imageData', e.target.result); // Store in local storage
+                    window.location.href = 'display-image.html'; // Redirect to display page
+                }
+
+                reader.readAsDataURL(file); // Read the file as a data URL.
+            } else {
+                alert('Please select an image file.');
+            }
+        }
+    </script>
+
+</body>
+</html>

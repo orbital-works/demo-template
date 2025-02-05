@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="background-color:powderblue;">
+
+    <head>
+        <meta charset="UFT 8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>first page</title>
+    </head>
+
+    <body>
+        <div class="centre">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="dashboard.html">
+                <button
+                    style="width: 550px; height: 250px; font-size: 150px; box-shadow: 0 8px 16px black;">Back</button>
+            </a>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button style="width: 550px; height: 250px; font-size: 150px; box-shadow: 0 8px 16px black;">
+                <input type="file" name="uploadfile" id="imageFile" style="display:none;" />
+                <label for="imageFile">Order</label>
+            </button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a
+                href="https://view.bidfood.co.uk/product-catalogues/product-catalogues-autumn-winter-2024/product-catalogue-autumn-winter-2024/?page=32.html">
+                <button
+                    style="width: 750px; height: 250px; font-size: 150px; box-shadow: 0 8px 16px black;">Catalogue</button>
+            </a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </body>
+
+    <script>
+        const imageFile = document.getElementById('imageFile');
+        imageFile.addEventListener('change', function() {
+          const file = this.files[0];
+          const reader = new FileReader();
+          reader.addEventListener('load', function(event) {
+            localStorage.setItem('imageData', event.target.result);
+            window.location.href = './preimage.html';
+          });
+          reader.readAsDataURL(file);
+        });
+      </script>
+
+</html>
